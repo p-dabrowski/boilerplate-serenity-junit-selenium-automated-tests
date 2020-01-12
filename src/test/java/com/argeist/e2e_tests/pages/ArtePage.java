@@ -15,6 +15,15 @@ public class ArtePage extends PageObject {
     @FindBy(className = "jss1")
     private WebElementFacade arteCheckElement;
 
+    @FindBy(xpath = "TODO")
+    private WebElementFacade userMenuButton;
+
+    @FindBy(xpath = "TODO")
+    private WebElementFacade logoutButton;
+
+    @FindBy(xpath = "//header/div/button")
+    private WebElementFacade showMenuButton;
+
     @FindBy(xpath = "//a[contains(.,'Products Catalogs')]")
     private WebElementFacade linkProductsCatalogs;
 
@@ -34,12 +43,17 @@ public class ArtePage extends PageObject {
     private WebElementFacade linkSearchEngine;
 
 
-    public boolean isElementVisible() {
-        return arteCheckElement.isPresent();
+    public void changeLanguageToEnglish() {
+        // TODO
     }
 
-    public void changeLanguageToEnglish() {
+    public void showMenu() {
+        showMenuButton.click();
+    }
 
+    public void logout() {
+        userMenuButton.click();
+        logoutButton.click();
     }
 
     public void goToProductsCatalogsPage() {
@@ -66,8 +80,8 @@ public class ArtePage extends PageObject {
         linkSearchEngine.click();
     }
 
-    public void verify() {
-
+    public Boolean verify() {
+        return arteCheckElement.isDisplayed();
     }
 
 }

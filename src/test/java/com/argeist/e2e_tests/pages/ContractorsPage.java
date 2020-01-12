@@ -11,7 +11,7 @@ public class ContractorsPage extends PageObject {
     private WebElementFacade addContractorButton;
 
     public Boolean verify() {
-        return addContractorButton.waitUntilNotVisible().isDisplayed();
+        return addContractorButton.waitUntilVisible().isDisplayed();
     }
 
 }
