@@ -28,16 +28,14 @@ public class LoginPage extends PageObject {
     public void login() {
         inputLogin.type("pdabrowski1");
         inputPassword.type("Test1234%" + Keys.ENTER);
-
-        //buttonSubmit.click();
     }
 
     public String getErrorMessage() {
         return errorMessage.getText();
     }
 
-    public void verify() {
-
+    public Boolean verify() {
+        return inputLogin.isDisplayed() && inputPassword.isDisplayed();
     }
 
 }
