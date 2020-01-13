@@ -1,15 +1,16 @@
-package com.argeist.e2e_tests.tests;
+package com.argeist.e2e_tests.test;
 
 import com.argeist.e2e_tests.pages.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityRunner.class)
-public class SmokeTests {
+public class SmokeTest {
     @Managed
     private WebDriver driver;
 
@@ -23,7 +24,7 @@ public class SmokeTests {
     private ContractorsPage contractorsPage;
 
     @Managed
-    ProductsCatalogsPage productsCatalogsPage;
+    private ProductsCatalogsPage productsCatalogsPage;
 
     @Managed
     private InvoicesPage invoicesPage;
@@ -37,6 +38,14 @@ public class SmokeTests {
     @Managed
     private SearchEnginePage searchEnginePage;
 
+    @Before
+    public void before() {
+        loginPage.openLoginPage();
+        loginPage.login();
+
+        artePage.showMenu();
+    }
+
     @Test
     public void loginTest() {
         loginPage.openLoginPage();
@@ -47,23 +56,13 @@ public class SmokeTests {
 
     @Test
     public void checkProductsCatalogsModule() {
-        loginPage.openLoginPage();
-        loginPage.login();
-
-        artePage.showMenu();
         artePage.goToProductsCatalogsPage();
 
         Assert.assertTrue("Products catalogs not visible", productsCatalogsPage.verify());
     }
 
-
-
     @Test
     public void checkContractorsModule() {
-        loginPage.openLoginPage();
-        loginPage.login();
-
-        artePage.showMenu();
         artePage.goToContractorsPage();
 
         Assert.assertTrue("Add contractor button not visible", contractorsPage.verify());
@@ -71,10 +70,6 @@ public class SmokeTests {
 
     @Test
     public void checkInvoicesPage() {
-        loginPage.openLoginPage();
-        loginPage.login();
-
-        artePage.showMenu();
         artePage.goToInvoicesPage();
 
         Assert.assertTrue("Invoices page not visible", invoicesPage.verify());
@@ -82,10 +77,6 @@ public class SmokeTests {
 
     @Test
     public void checkUsersPage() {
-        loginPage.openLoginPage();
-        loginPage.login();
-
-        artePage.showMenu();
         artePage.goToUsersPage();
 
         Assert.assertTrue("Users page not visible", usersPage.verify());
@@ -93,10 +84,6 @@ public class SmokeTests {
 
     @Test
     public void checkSearchEnginePage() {
-        loginPage.openLoginPage();
-        loginPage.login();
-
-        artePage.showMenu();
         artePage.goToSearchEnginePage();
 
         Assert.assertTrue("Search engine page not visible", searchEnginePage.verify());
@@ -104,10 +91,6 @@ public class SmokeTests {
 
     @Test
     public void checkShipmentsProgressPage() {
-        loginPage.openLoginPage();
-        loginPage.login();
-
-        artePage.showMenu();
         artePage.goToShipmentsProgressPage();
 
         Assert.assertTrue("Shipments progress not visible", shipmentsProgressPage.verify());

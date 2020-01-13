@@ -10,6 +10,9 @@ public class SearchEnginePage extends PageObject {
     @FindBy(xpath = "//main")
     private WebElementFacade checkElement;
 
+    @FindBy(xpath = "//input[@id='search']")
+    private WebElementFacade inputSearch;
+
     public Boolean verify() {
         return checkElement.waitUntilVisible().isDisplayed();
     }

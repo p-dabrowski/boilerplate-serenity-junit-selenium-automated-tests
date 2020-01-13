@@ -10,6 +10,9 @@ public class InvoicesPage extends PageObject {
     @FindBy(xpath = "//main/div/div")
     private WebElementFacade invoicesElement;
 
+    @FindBy(xpath = "//input[@id='search']")
+    private WebElementFacade inputSearch;
+
     public Boolean verify() {
         return invoicesElement.waitUntilVisible().isDisplayed();
     }

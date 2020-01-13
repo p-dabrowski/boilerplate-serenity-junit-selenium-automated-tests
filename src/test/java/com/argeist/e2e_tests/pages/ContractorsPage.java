@@ -14,4 +14,8 @@ public class ContractorsPage extends PageObject {
         return addContractorButton.waitUntilVisible().isDisplayed();
     }
 
+    public void openAddContractorForm() {
+        addContractorButton.click();
+    }
+
 }

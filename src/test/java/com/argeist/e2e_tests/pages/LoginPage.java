@@ -21,6 +21,8 @@ public class LoginPage extends PageObject {
     @FindBy(id = "msg")
     private WebElementFacade errorMessage;
 
+
+
     public void openLoginPage() {
         this.open();
     }
