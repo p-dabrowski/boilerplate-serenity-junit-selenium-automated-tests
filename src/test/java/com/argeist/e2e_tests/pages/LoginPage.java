@@ -29,7 +29,7 @@ public class LoginPage extends PageObject {
 
     public void login() {
         inputLogin.type("pdabrowski1");
-        inputPassword.type("Test1234%" + Keys.ENTER);
+        inputPassword.type("xxxxx" + Keys.ENTER);
     }
 
     public String getErrorMessage() {
