@@ -15,10 +15,10 @@ public class LoginPage extends PageObject {
     @FindBy(id = "password-input")
     private WebElementFacade inputPassword;
 
-    @FindBy(id = "submit")
+    @FindBy(xpath = "//button")
     private WebElementFacade buttonSubmit;
 
-    @FindBy(id = "msg")
+    @FindBy(xpath = "//div")
     private WebElementFacade errorMessage;
 
 
@@ -29,7 +29,7 @@ public class LoginPage extends PageObject {
 
     public void login() {
         inputLogin.type("pdabrowski1");
-        inputPassword.type("xxxxx" + Keys.ENTER);
+        inputPassword.type("xxx" + Keys.ENTER);
     }
 
     public String getErrorMessage() {
@@ -37,7 +37,7 @@ public class LoginPage extends PageObject {
     }
 
     public Boolean verify() {
-        return inputLogin.isDisplayed() && inputPassword.isDisplayed();
+        return inputLogin.isDisplayed() && inputPassword.isDisplayed() && buttonSubmit.isDisplayed();
     }
 
 }

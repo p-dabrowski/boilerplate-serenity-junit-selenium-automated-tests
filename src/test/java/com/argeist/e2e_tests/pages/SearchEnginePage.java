@@ -7,14 +7,15 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class SearchEnginePage extends PageObject {
 
-    @FindBy(xpath = "//main")
-    private WebElementFacade checkElement;
+    @FindBy(xpath = "//div[@id='table-production-orders']")
+    private WebElementFacade tableProductionOrder;
 
     @FindBy(xpath = "//input[@id='search']")
     private WebElementFacade inputSearch;
 
     public Boolean verify() {
-        return checkElement.waitUntilVisible().isDisplayed();
+        return tableProductionOrder.waitUntilVisible().isDisplayed()
+        && inputSearch.isDisplayed();
     }
 
 }

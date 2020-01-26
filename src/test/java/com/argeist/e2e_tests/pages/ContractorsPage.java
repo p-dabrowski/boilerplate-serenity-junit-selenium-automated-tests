@@ -7,11 +7,17 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class ContractorsPage extends PageObject {
 
-    @FindBy(xpath = "//a[contains(@href,'/dropshipping/contractors/create')]")
+    @FindBy(xpath = "//a[@id='contractors-create-button']")
     private WebElementFacade addContractorButton;
 
+    @FindBy(xpath = "//div[@id='table-contractors']")
+    private WebElementFacade tableContractors;
+
+
     public Boolean verify() {
-        return addContractorButton.waitUntilVisible().isDisplayed();
+        return
+                addContractorButton.waitUntilVisible().isDisplayed() &&
+                tableContractors.isDisplayed();
     }
 
     public void openAddContractorForm() {

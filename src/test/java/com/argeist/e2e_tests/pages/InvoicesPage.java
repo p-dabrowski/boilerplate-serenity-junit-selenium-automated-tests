@@ -7,14 +7,18 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class InvoicesPage extends PageObject {
 
-    @FindBy(xpath = "//main/div/div")
-    private WebElementFacade invoicesElement;
+    @FindBy(xpath = "//div[@id='table-invoices']")
+    private WebElementFacade tableInvoices;
 
-    @FindBy(xpath = "//input[@id='search']")
+    @FindBy(xpath = "//input[@id='invoices-search-input']")
     private WebElementFacade inputSearch;
 
+    @FindBy(xpath = "//input[@id='TODO']")
+    private WebElementFacade buttonFilter;
+
     public Boolean verify() {
-        return invoicesElement.waitUntilVisible().isDisplayed();
+        return tableInvoices.waitUntilVisible().isDisplayed() &&
+                inputSearch.isDisplayed();
     }
 
 }

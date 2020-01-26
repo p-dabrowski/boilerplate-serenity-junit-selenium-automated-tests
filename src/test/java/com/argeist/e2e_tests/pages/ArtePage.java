@@ -12,39 +12,47 @@ public class ArtePage extends PageObject {
 
     private Logger logger = LoggerFactory.getLogger(ArtePage.class);
 
-    @FindBy(className = "jss1")
-    private WebElementFacade arteCheckElement;
 
-    @FindBy(xpath = "TODO")
+    @FindBy(xpath = "//button[@id='app-bar-account-button']")
     private WebElementFacade userMenuButton;
 
-    @FindBy(xpath = "TODO")
+    @FindBy(xpath = "//button[@id='app-bar-menu-logout-button']")
     private WebElementFacade logoutButton;
 
-    @FindBy(xpath = "//header/div/button")
+    @FindBy(xpath = "//button[@id='app-bar-settings-button']")
+    private WebElementFacade settingsButton;
+
+    @FindBy(xpath = "//li[contains(.,'Polish')]")
+    private WebElementFacade settingsPolish;
+
+    @FindBy(xpath = "//li[contains(.,'English')]")
+    private WebElementFacade settingsEnglish;
+
+    @FindBy(xpath = "//button[@id='app-bar-hamburger-button']")
     private WebElementFacade showMenuButton;
 
-    @FindBy(xpath = "//a[contains(.,'Products Catalogs')]")
+    @FindBy(xpath = "//a[@id='navlink-stablo-productCatalogs']")
     private WebElementFacade linkProductsCatalogs;
 
-    @FindBy(xpath = "//a[contains(.,'Shipments in progress')]")
+    @FindBy(xpath = "//a[@id='navlink-prodis-shipments']")
     private WebElementFacade linkShipmentsProgress;
 
-    @FindBy(xpath = "//a[contains(.,'Contractors')]")
+    @FindBy(xpath = "//a[@id='navlink-dropshipping-contractors']")
     private WebElementFacade linkContractors;
 
-    @FindBy(xpath = "//a[contains(.,'Invoices')]")
+    @FindBy(xpath = "//a[@id='navlink-dropshipping-invoices']")
     private WebElementFacade linkInvoices;
 
-    @FindBy(xpath = "//a[contains(.,'Users')]")
+    @FindBy(xpath = "//a[@id='navlink-pdp-users']")
     private WebElementFacade linkUsers;
 
-    @FindBy(xpath = "//a[contains(.,'Search Engine')]")
+    @FindBy(xpath = "//a[@id='navlink-production-searchEngine']")
     private WebElementFacade linkSearchEngine;
 
 
     public void changeLanguageToEnglish() {
-        // TODO
+        userMenuButton.click();
+        settingsPolish.click();
     }
 
     public void showMenu() {
@@ -81,7 +89,7 @@ public class ArtePage extends PageObject {
     }
 
     public Boolean verify() {
-        return arteCheckElement.isDisplayed();
+        return userMenuButton.isDisplayed();
     }
 
 }

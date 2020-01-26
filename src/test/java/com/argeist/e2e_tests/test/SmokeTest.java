@@ -48,10 +48,14 @@ public class SmokeTest {
 
     @Test
     public void loginTest() {
-        loginPage.openLoginPage();
-        loginPage.login();
-
         Assert.assertTrue("Element not visible", artePage.verify());
+    }
+
+    @Test
+    public void logoutTest() {
+        artePage.logout();
+
+        Assert.assertTrue("Login page not displayed", loginPage.verify());
     }
 
     @Test
@@ -80,6 +84,17 @@ public class SmokeTest {
         artePage.goToUsersPage();
 
         Assert.assertTrue("Users page not visible", usersPage.verify());
+    }
+
+    @Test
+    public void checkUsersFilter() {
+        artePage.goToUsersPage();
+
+        String key = "pdabrowski1";
+
+        usersPage.filterUsersList(key);
+        Assert.assertTrue("Users list incorrect rows number", usersPage.tableUsersRowsCount() == 1);
+        Assert.assertTrue("Users list doesn't contain: " +key, usersPage.getUsersTableText().contains(key));
     }
 
     @Test

@@ -7,7 +7,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class ProductsCatalogsPage extends PageObject {
 
-    @FindBy(xpath = "//main/div/div/div")
+    @FindBy(xpath = "//TODO")
     private WebElementFacade productsCatalogsPageElement;
 
     public Boolean verify() {

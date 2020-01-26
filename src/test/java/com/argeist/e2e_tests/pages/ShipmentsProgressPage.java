@@ -7,11 +7,20 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class ShipmentsProgressPage extends PageObject {
 
-    @FindBy(xpath = "//main")
-    private WebElementFacade checkElement;
+    @FindBy(xpath = "//div[@id='table-shipments']")
+    private WebElementFacade tableShipments;
+
+    @FindBy(xpath = "//input[@id='shipments-search-input']")
+    private WebElementFacade inputSearch;
+
+    @FindBy(xpath = "//input[@id='TODO']")
+    private WebElementFacade buttonFilter;
+
+
 
     public Boolean verify() {
-        return checkElement.waitUntilVisible().isDisplayed();
+        return tableShipments.waitUntilVisible().isDisplayed() &&
+                inputSearch.isDisplayed();
     }
 
 }
