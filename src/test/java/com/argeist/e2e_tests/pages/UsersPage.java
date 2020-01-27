@@ -19,8 +19,18 @@ public class UsersPage extends PageObject {
     @FindBy(xpath = "//div[@id='table-users-body-row']")
     private List<WebElementFacade> tableRow;
 
-    @FindBy(xpath = "//a[@id='users-create-button'")
+    @FindBy(xpath = "//a[@id='users-create-button']")
     private WebElementFacade buttonAdd;
+
+    @FindBy(xpath = "//input[@name='firstName']")
+    private WebElementFacade inputName;
+
+    @FindBy(xpath = "//input[@name='username']")
+    private WebElementFacade inputLogin;
+
+    @FindBy(xpath = "//input[@name='plainPassword']")
+    private WebElementFacade inputPassword;
+
 
     public Boolean verify() {
         return tableUsers.isDisplayed() && inputSearch.waitUntilVisible().isDisplayed() && buttonAdd.isDisplayed();
@@ -33,8 +43,15 @@ public class UsersPage extends PageObject {
         tableRow.get(0).waitUntilVisible();
     }
 
-    public void openAdduserForm() {
+    public void openAddUserForm() {
         buttonAdd.click();
+    }
+
+    public Boolean checkAddUserForm() {
+        return
+                inputName.isDisplayed() &&
+                inputLogin.isDisplayed() &&
+                inputPassword.isDisplayed();
     }
 
     public String getUsersTableText() {

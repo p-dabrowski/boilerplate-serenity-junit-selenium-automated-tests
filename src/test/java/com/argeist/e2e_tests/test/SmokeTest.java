@@ -84,6 +84,9 @@ public class SmokeTest {
         artePage.goToUsersPage();
 
         Assert.assertTrue("Users page not visible", usersPage.verify());
+
+        usersPage.openAddUserForm();
+        Assert.assertTrue("Create user form invalid", usersPage.checkAddUserForm());
     }
 
     @Test
