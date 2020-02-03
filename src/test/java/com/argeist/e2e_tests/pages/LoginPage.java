@@ -22,14 +22,13 @@ public class LoginPage extends PageObject {
     private WebElementFacade errorMessage;
 
 
-
     public void openLoginPage() {
         this.open();
     }
 
-    public void login() {
-        inputLogin.type("pdabrowski1");
-        inputPassword.type("xxx" + Keys.ENTER);
+    public void login(String username, String password) {
+        inputLogin.type(username);
+        inputPassword.type(password + Keys.ENTER);
     }
 
     public String getErrorMessage() {
@@ -39,5 +38,4 @@ public class LoginPage extends PageObject {
     public Boolean verify() {
         return inputLogin.isDisplayed() && inputPassword.isDisplayed() && buttonSubmit.isDisplayed();
     }
-
 }

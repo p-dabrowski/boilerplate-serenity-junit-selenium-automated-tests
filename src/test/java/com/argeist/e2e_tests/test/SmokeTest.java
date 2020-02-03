@@ -3,6 +3,7 @@ package com.argeist.e2e_tests.test;
 import com.argeist.e2e_tests.pages.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.util.EnvironmentVariables;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityRunner.class)
 public class SmokeTest {
+    private EnvironmentVariables environmentVariables;
+
     @Managed
     private WebDriver driver;
 
@@ -40,15 +43,19 @@ public class SmokeTest {
 
     @Before
     public void before() {
+
+        String username = environmentVariables.getProperty("username");
+        String password = environmentVariables.getProperty("password");
+
         loginPage.openLoginPage();
-        loginPage.login();
+        loginPage.login(username, password);
 
         artePage.showMenu();
     }
 
     @Test
     public void loginTest() {
-        Assert.assertTrue("Element not visible", artePage.verify());
+        Assert.assertTrue("Arte page check error", artePage.verify());
     }
 
     @Test
@@ -86,7 +93,7 @@ public class SmokeTest {
         Assert.assertTrue("Users page not visible", usersPage.verify());
 
         usersPage.openAddUserForm();
-        Assert.assertTrue("Create user form invalid", usersPage.checkAddUserForm());
+        Assert.assertTrue("'Create user' form invalid", usersPage.checkAddUserForm());
     }
 
     @Test

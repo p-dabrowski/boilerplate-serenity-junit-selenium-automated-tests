@@ -13,14 +13,14 @@ public class ArtePage extends PageObject {
     private Logger logger = LoggerFactory.getLogger(ArtePage.class);
 
 
-    @FindBy(xpath = "//button[@id='app-bar-account-button']")
-    private WebElementFacade userMenuButton;
-
     @FindBy(xpath = "//button[@id='app-bar-menu-logout-button']")
     private WebElementFacade logoutButton;
 
     @FindBy(xpath = "//button[@id='app-bar-settings-button']")
     private WebElementFacade settingsButton;
+
+    @FindBy(xpath = "//button[@id='app-bar-account-button']")
+    private WebElementFacade accountButton;
 
     @FindBy(xpath = "//li[contains(.,'Polish')]")
     private WebElementFacade settingsPolish;
@@ -51,7 +51,7 @@ public class ArtePage extends PageObject {
 
 
     public void changeLanguageToEnglish() {
-        userMenuButton.click();
+        settingsButton.click();
         settingsPolish.click();
     }
 
@@ -60,7 +60,7 @@ public class ArtePage extends PageObject {
     }
 
     public void logout() {
-        userMenuButton.click();
+        accountButton.click();
         logoutButton.click();
     }
 
@@ -89,7 +89,7 @@ public class ArtePage extends PageObject {
     }
 
     public Boolean verify() {
-        return userMenuButton.isDisplayed();
+        return settingsButton.isDisplayed() && accountButton.isDisplayed();
     }
 
 }

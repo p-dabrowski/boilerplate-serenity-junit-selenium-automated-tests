@@ -13,14 +13,13 @@ public class ShipmentsProgressPage extends PageObject {
     @FindBy(xpath = "//input[@id='shipments-search-input']")
     private WebElementFacade inputSearch;
 
-    @FindBy(xpath = "//input[@id='TODO']")
+    @FindBy(xpath = "//button[@id='shipments-advanced-filter-button']")
     private WebElementFacade buttonFilter;
-
 
 
     public Boolean verify() {
         return tableShipments.waitUntilVisible().isDisplayed() &&
-                inputSearch.isDisplayed();
+                inputSearch.isDisplayed() && buttonFilter.isDisplayed();
     }
 
 }

@@ -13,9 +13,15 @@ public class SearchEnginePage extends PageObject {
     @FindBy(xpath = "//input[@id='search']")
     private WebElementFacade inputSearch;
 
+    @FindBy(xpath = "//button[@id='production-orders-advanced-filter-button']")
+    private WebElementFacade buttonFilter;
+
+    @FindBy(xpath = "//button[@id='production-orders-presets-button']")
+    private WebElementFacade buttonPresets;
+
     public Boolean verify() {
         return tableProductionOrder.waitUntilVisible().isDisplayed()
-        && inputSearch.isDisplayed();
+        && inputSearch.isDisplayed() && buttonFilter.isDisplayed() && buttonPresets.isDisplayed();
     }
 
 }
