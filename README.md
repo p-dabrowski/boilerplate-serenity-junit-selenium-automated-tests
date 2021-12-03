@@ -1,4 +1,4 @@
-Arte automated tests project
+Serenity automated tests project
 =============================
 
 ## Installation

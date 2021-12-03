@@ -1,4 +1,4 @@
-package com.argeist.e2e_tests.pages;
+package com.organization.e2e_tests.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
